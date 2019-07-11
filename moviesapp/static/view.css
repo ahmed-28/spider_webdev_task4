@@ -1,0 +1,90 @@
+body{
+    background-image: url("back1.jpg");
+    background-size: cover;
+    font-family: 'Acme';
+}
+
+h1{
+    float: left;
+}
+
+h2{
+    text-align: center;
+    padding: 10px;
+}
+
+.nav{
+    overflow: auto;
+    background-color: teal;
+}
+
+.nav a{
+    float: right;
+    position: relative;
+    top:15px;
+    padding:15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.active{
+    background-color: black;
+}
+
+img{
+    float: left;
+    padding :10px;
+}
+
+.des{
+    padding:10px;
+    line-height: 50px;
+}
+
+.first{
+    overflow: auto;
+}
+
+.trailer{
+    padding: 10px;
+    text-align: center;
+}
+
+.options{
+    float: right;
+    position: relative;
+    right: 250px;
+    bottom:50px;
+}
+
+.options li{
+    list-style-type: none;
+    box-sizing: border-box;
+    padding:40px;
+}
+
+i{
+    color: black;
+}
+form div{
+    padding: 5px;
+}
+
+button{
+    border-radius: 8px;
+}
+.comments{
+    padding:10px; 
+    text-align: left;
+    margin-left: 50px;
+    font-size: 20px;  
+}
+
+input{
+    border:none;
+    border-radius: 9px;
+    background-color: lightgray;
+    height: 30px;
+}
+

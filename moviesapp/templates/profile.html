@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>view</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{url_for('static',filename='profile.css')}}">
+        <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet'>
+    </head>
+
+    <body>
+        <div class="nav">
+            <h1>Spider-MovieDb</h1>
+            <a class="active" href="{{url_for('profile')}}">Your Profile</a>
+            <a href="{{url_for('home')}}">Home</a>
+        </div>
+        <div class="s_users">
+            <h4>Search users</h4>
+            <form name="users" id="users" action="" method="post">
+                <div>
+                    <input type="text" name="username" placeholder="enter username">
+                </div>
+            </form>
+            <button type="submit" form="users">find</button>
+        </div>
+        <div class="acctype">
+            <h4>Account Type</h4>
+            {% if type=='public' %}
+            <p id="info">PUBLIC(users can see your acticity)</p>
+            {% else %}
+            <p id="info">PRIVATE(other users can't see your activity)</p>
+            {% endif %}
+            <button type="button" onclick="change_type(this)">{{type}}</button>
+        </div>
+        
+        <div class="favourites">
+            <h3>Favourite Videos</h3>
+            {% if data3 %}
+            <ul>
+            {% for d in data3 %}
+             <li>{{d[1]}}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>No favourite videos</p>
+            {% endif %}
+        </div>
+      
+        
+        <div class="wl">
+            <h3>Watch Later</h3>
+            {% if data1 %}
+            <ul>
+                {%for d in data1 %}
+                <li>{{d[1]}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <p>No videos are added to watch later..</p>
+            {% endif %}
+        </div>
+        <h3>YOUR ACTIVITY</h3>
+        
+        <div class="liked">
+            <h3>Liked Videos</h3>
+            {% if data %}
+            <ul>
+            {% for d in data %}
+             <li>{{d[1]}}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have not liked any videos</p>
+            {% endif %}
+        </div>
+        
+        <div class="wa">
+            <h3>Watched</h3>
+            {% if data2 %}
+            <ul>
+                {%for d in data2 %}
+                <li>{{d[1]}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <p>You have not watched any videos</p>
+            {% endif %}
+        </div>
+</body>
+
+<script>
+        function change_type(b){
+            var request=new XMLHttpRequest();
+            var data;
+            request.onreadystatechange=function(){
+                if(this.readyState==4 && this.status==200)
+                 console.log("done");
+            };
+            if(b.innerHTML=="public"){
+                b.innerHTML="private";
+                var p=document.getElementById('info')
+                p.innerHTML="PRIVATE(others can't see your activity)";
+                data='state=private';
+                console.log(data);
+            }
+            else if(b.innerHTML=="private"){
+                b.innerHTML="public";
+                var p=document.getElementById('info')
+                p.innerHTML="PUBLIC(other users can see your activity)";
+                data='state=public';
+            }
+            request.open('POST',"{{url_for('acctype')}}",true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(data);
+        }
+</script>
+        

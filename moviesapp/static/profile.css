@@ -1,0 +1,69 @@
+body{
+    background-image: url("back1.jpg");
+    background-size: cover;
+    font-family: 'Acme';
+    margin: 0;  
+    padding: 4px;
+}
+
+
+h1{
+    float: left;
+}
+.nav a{
+    float: right;
+    position: relative;
+    top:15px;
+    padding:15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.active{
+    background-color: black;
+}
+
+.nav{
+    overflow: auto;
+    background-color: teal;
+}
+
+.activity{
+    overflow: auto;
+}
+
+.activity a{
+    float: left;
+    padding-right: 50px;
+    text-decoration: none;
+}
+
+.favourites ,.wa ,.wl ,.liked{
+ margin-left: 20px;
+ padding:10px;
+}
+
+.s_users{
+    float: right;
+    position: relative;
+    top:20px;
+    right:20px;
+}
+
+form div{
+    padding: 5px;
+}
+
+h4{
+    position: relative;
+    left:10px;
+}
+
+button{
+    border-radius: 9px;
+    position: relative;
+    left:10px;
+    border:none;
+
+}

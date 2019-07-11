@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>view</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="{{url_for('static',filename='profile.css')}}">
+    </head>
+
+    <body>
+        <div class="nav">
+            <h1>Spider-MovieDb</h1>
+            <a href="{{url_for('profile')}}">Your Profile</a>
+            <a href="{{url_for('home')}}">Home</a>
+        </div>
+        {% if msg %}
+        <h3> {{msg}} <h3>
+        {% else %}
+        <div class="acctype">
+            <h5>Account Type</h5>
+            {% if type=='public' %}
+            <p id="info">PUBLIC(users can see your acticity)</p>
+            {% else %}
+            <p id="info">PRIVATE(other users can't see your activity)</p>
+            {% endif %}
+        </div>
+        
+        <div class="favourites">
+            <h3>Favourite Videos</h3>
+            {% if data3 %}
+            <ul>
+            {% for d in data3 %}
+             <li>{{d[1]}}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>No favourite videos</p>
+            {% endif %}
+        </div>
+      
+        
+        <div class="wl">
+            <h3>Watch Later</h3>
+            {% if data1 %}
+            <ul>
+                {%for d in data1 %}
+                <li>{{d[1]}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <p>No videos are added to watch later..</p>
+            {% endif %}
+        </div>
+        <h4>YOUR ACTIVITY</h4>
+        
+        <div class="liked">
+            <h3>Liked Videos</h3>
+            {% if data %}
+            <ul>
+            {% for d in data %}
+             <li>{{d[1]}}</li>
+            {% endfor %}
+            </ul>
+            {% else %}
+            <p>You have not liked any videos</p>
+            {% endif %}
+        </div>
+        
+        <div class="wa">
+            <h3>Watched</h3>
+            {% if data2 %}
+            <ul>
+                {%for d in data2 %}
+                <li>{{d[1]}}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+
+            <p>You have not watched any videos</p>
+            {% endif %}
+        </div>
+        {% endif %}
+</body>
+</html>
+        
